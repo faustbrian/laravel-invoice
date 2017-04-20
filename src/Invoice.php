@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Invoice.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\Invoice;
 
 use Carbon\Carbon;
@@ -193,10 +202,10 @@ class Invoice
     public function view()
     {
         return View::make(config('invoice.view'), [
-            'invoice' => $this,
-            'vendor' => $this->vendor,
-            'owner' => $this->owner,
-            'products' => $this->products,
+            'invoice'     => $this,
+            'vendor'      => $this->vendor,
+            'owner'       => $this->owner,
+            'products'    => $this->products,
             'transaction' => $this->transaction,
         ]);
     }
@@ -239,10 +248,10 @@ class Invoice
         $filename = $this->transaction->id.'_'.$this->date()->month.'_'.$this->date()->year.'.pdf';
 
         return new Response($this->pdf(), 200, [
-            'Content-Description' => 'File Transfer',
-            'Content-Disposition' => 'attachment; filename="'.$filename.'"',
+            'Content-Description'       => 'File Transfer',
+            'Content-Disposition'       => 'attachment; filename="'.$filename.'"',
             'Content-Transfer-Encoding' => 'binary',
-            'Content-Type' => 'application/pdf',
+            'Content-Type'              => 'application/pdf',
         ]);
     }
 
