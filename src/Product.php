@@ -26,7 +26,7 @@ class Product
     private $quantity;
 
     /** @var string */
-    private $unit_price;
+    private $price;
 
     /** @var string */
     private $total;
@@ -39,29 +39,29 @@ class Product
         $this->sku = array_get($data, 'sku');
         $this->name = array_get($data, 'name');
         $this->quantity = array_get($data, 'quantity');
-        $this->unitPrice = array_get($data, 'unit_price');
+        $this->price = array_get($data, 'price');
         $this->total = array_get($data, 'total');
         $this->meta = array_get($data, 'meta');
     }
 
     /**
-     * Get the unit price that was paid (or will be paid).
+     * Get the price that was paid (or will be paid).
      *
      * @return string
      */
-    public function unitPrice()
+    public function price()
     {
-        return formatter()->formatAmount($this->unitPrice);
+        return formatter()->formatAmount($this->price);
     }
 
     /**
-     * Get the raw unit price that was paid (or will be paid).
+     * Get the raw price that was paid (or will be paid).
      *
      * @return float
      */
-    public function rawUnitPrice()
+    public function rawPrice()
     {
-        return formatter()->formatDecimal($this->unitPrice);
+        return formatter()->formatDecimal($this->price);
     }
 
     /**
