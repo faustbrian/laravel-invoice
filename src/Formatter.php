@@ -124,7 +124,7 @@ class Formatter
     public function formatAmount($amount): string
     {
         if (is_string($amount)) {
-            $amount = $this->convertStringToDecimal($amount);
+            $amount = $this->convertStringToDecimal($amount) * 100;
         }
 
         $money = $this->getMoneyInstance($amount);
