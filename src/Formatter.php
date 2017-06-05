@@ -56,7 +56,7 @@ class Formatter
      *
      * @param string $locale
      */
-    public function useLocale(string $locale): void
+    public function useLocale(string $locale)
     {
         $this->locale = $locale;
     }
@@ -77,7 +77,7 @@ class Formatter
      * @param string      $currency
      * @param string|null $symbol
      */
-    public function useCurrency(string $currency, string $symbol = null): void
+    public function useCurrency(string $currency, string $symbol = null)
     {
         $this->currency = $currency;
 
@@ -99,7 +99,7 @@ class Formatter
      *
      * @param string $symbol
      */
-    public function useCurrencySymbol(string $symbol): void
+    public function useCurrencySymbol(string $symbol)
     {
         $this->currencySymbol = $symbol;
     }

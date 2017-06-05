@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Invoice;
+namespace BrianFaust\Invoice\Entities;
 
+use BrianFaust\Invoice\ProductCollection;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\View;
@@ -45,9 +46,9 @@ class Invoice
         $this->products = $products;
         $this->transaction = $transaction;
 
-        $this->useLocale(config('invoice.locale'));
-        $this->useCurrency(config('invoice.currency'));
-        $this->useView(config('invoice.view'));
+        $this->useLocale(config('laravel-invoice.locale'));
+        $this->useCurrency(config('laravel-invoice.currency'));
+        $this->useView(config('laravel-invoice.view'));
     }
 
     /**
@@ -55,7 +56,7 @@ class Invoice
      *
      * @param string $locale
      */
-    public function useLocale(string $locale): void
+    public function useLocale(string $locale)
     {
         config(['invoice.locale' => $locale]);
     }
@@ -65,7 +66,7 @@ class Invoice
      *
      * @param string $currency
      */
-    public function useCurrency(string $currency): void
+    public function useCurrency(string $currency)
     {
         config(['invoice.currency' => $currency]);
     }
@@ -75,7 +76,7 @@ class Invoice
      *
      * @param string $view
      */
-    public function useView(string $view): void
+    public function useView(string $view)
     {
         config(['invoice.view' => $view]);
     }
@@ -201,11 +202,11 @@ class Invoice
      */
     public function view()
     {
-        return View::make(config('invoice.view'), [
-            'invoice'     => $this,
-            'vendor'      => $this->vendor,
-            'owner'       => $this->owner,
-            'products'    => $this->products,
+        return View::make(config('laravel-invoice.view'), [
+            'invoice' => $this,
+            'vendor' => $this->vendor,
+            'owner' => $this->owner,
+            'products' => $this->products,
             'transaction' => $this->transaction,
         ]);
     }
@@ -248,10 +249,10 @@ class Invoice
         $filename = $this->transaction->id.'_'.$this->date()->month.'_'.$this->date()->year.'.pdf';
 
         return new Response($this->pdf(), 200, [
-            'Content-Description'       => 'File Transfer',
-            'Content-Disposition'       => 'attachment; filename="'.$filename.'"',
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="'.$filename.'"',
             'Content-Transfer-Encoding' => 'binary',
-            'Content-Type'              => 'application/pdf',
+            'Content-Type' => 'application/pdf',
         ]);
     }
 

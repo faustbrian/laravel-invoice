@@ -11,6 +11,7 @@
 
 namespace BrianFaust\Invoice;
 
+use BrianFaust\Invoice\Entities\Product;
 use Illuminate\Support\Collection;
 
 class ProductCollection

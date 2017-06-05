@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Invoice;
+namespace BrianFaust\Invoice\Entities;
 
 class Product
 {

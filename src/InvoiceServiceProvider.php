@@ -11,37 +11,31 @@
 
 namespace BrianFaust\Invoice;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class InvoiceServiceProvider extends AbstractServiceProvider
+class InvoiceServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
      */
-    public function boot(): void
+    public function boot()
     {
-        $this->publishConfig();
+        $this->publishes([
+            __DIR__.'/../config/laravel-invoice.php' => config_path('laravel-invoice.php'),
+        ], 'config');
 
-        $this->publishViews();
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/laravel-invoice'),
+        ], 'views');
 
-        $this->loadViews();
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-invoice');
     }
 
     /**
      * Register bindings in the container.
      */
-    public function register(): void
+    public function register()
     {
-        parent::register();
-
-        $this->mergeConfig();
-    }
-
-    /**
-     * Register package name.
-     */
-    protected function getPackageName()
-    {
-        return 'invoice';
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-invoice.php', 'laravel-invoice');
     }
 }
