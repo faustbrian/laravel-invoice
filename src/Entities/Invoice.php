@@ -203,10 +203,10 @@ class Invoice
     public function view()
     {
         return View::make(config('laravel-invoice.view'), [
-            'invoice' => $this,
-            'vendor' => $this->vendor,
-            'owner' => $this->owner,
-            'products' => $this->products,
+            'invoice'     => $this,
+            'vendor'      => $this->vendor,
+            'owner'       => $this->owner,
+            'products'    => $this->products,
             'transaction' => $this->transaction,
         ]);
     }
@@ -249,10 +249,10 @@ class Invoice
         $filename = $this->transaction->id.'_'.$this->date()->month.'_'.$this->date()->year.'.pdf';
 
         return new Response($this->pdf(), 200, [
-            'Content-Description' => 'File Transfer',
-            'Content-Disposition' => 'attachment; filename="'.$filename.'"',
+            'Content-Description'       => 'File Transfer',
+            'Content-Disposition'       => 'attachment; filename="'.$filename.'"',
             'Content-Transfer-Encoding' => 'binary',
-            'Content-Type' => 'application/pdf',
+            'Content-Type'              => 'application/pdf',
         ]);
     }
 
