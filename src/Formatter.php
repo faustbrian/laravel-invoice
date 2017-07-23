@@ -11,12 +11,12 @@
 
 namespace BrianFaust\Invoice;
 
-use Money\Currencies\ISOCurrencies;
-use Money\Currency;
-use Money\Formatter\DecimalMoneyFormatter;
-use Money\Formatter\IntlMoneyFormatter;
 use Money\Money;
+use Money\Currency;
 use NumberFormatter;
+use Money\Currencies\ISOCurrencies;
+use Money\Formatter\IntlMoneyFormatter;
+use Money\Formatter\DecimalMoneyFormatter;
 
 class Formatter
 {
