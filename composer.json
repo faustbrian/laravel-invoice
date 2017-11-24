@@ -10,7 +10,7 @@
     }],
     "require": {
         "php": "^7.0",
-        "illuminate/support": "5.4.*",
+        "illuminate/support": "5.4.* || 5.5.*",
         "dompdf/dompdf": "^0.8.0",
         "moneyphp/money": "^3.0"
     },
