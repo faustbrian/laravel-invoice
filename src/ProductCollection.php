@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace BrianFaust\Invoice;
 
-use Illuminate\Support\Collection;
 use BrianFaust\Invoice\Entities\Product;
+use Illuminate\Support\Collection;
 
 class ProductCollection
 {
@@ -29,7 +29,7 @@ class ProductCollection
         $this->data = new Collection();
 
         foreach ($data as $product) {
-            if (! $product instanceof Product) {
+            if (!$product instanceof Product) {
                 $product = new Product($product);
             }
 

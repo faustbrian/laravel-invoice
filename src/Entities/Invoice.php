@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace BrianFaust\Invoice\Entities;
 
+use BrianFaust\Invoice\ProductCollection;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\View;
-use BrianFaust\Invoice\ProductCollection;
 use Symfony\Component\HttpFoundation\Response;
 
 class Invoice
@@ -222,7 +222,7 @@ class Invoice
      */
     public function pdf()
     {
-        if (! defined('DOMPDF_ENABLE_AUTOLOAD')) {
+        if (!defined('DOMPDF_ENABLE_AUTOLOAD')) {
             define('DOMPDF_ENABLE_AUTOLOAD', false);
         }
 
