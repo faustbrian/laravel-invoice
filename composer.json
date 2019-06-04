@@ -1,16 +1,23 @@
 {
     "name": "artisanry/invoice",
     "description": "Easy Invoices for Laravel",
-    "keywords": ["laravel", "framework", "Laravel Invoice", "Laravel-Invoice"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "Laravel Invoice",
+        "Laravel-Invoice"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@basecode.sh",
-        "homepage": "https://basecode.sh"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^5.6",
+        "php": "^7.2",
+        "illuminate/support": "^5.8",
         "dompdf/dompdf": "^0.8",
         "moneyphp/money": "^3.1"
     },
