@@ -5,15 +5,15 @@ declare(strict_types=1);
 /*
  * This file is part of Laravel Invoice.
  *
- * (c) Brian Faust <hello@brianfaust.me>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Invoice\Entities;
+namespace Artisanry\Invoice\Entities;
 
-use BrianFaust\Invoice\ProductCollection;
+use Artisanry\Invoice\ProductCollection;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\View;
@@ -21,25 +21,25 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Invoice
 {
-    /** @var \BrianFaust\Invoice\Vendor */
+    /** @var \Artisanry\Invoice\Vendor */
     protected $vendor;
 
-    /** @var \BrianFaust\Invoice\Owner */
+    /** @var \Artisanry\Invoice\Owner */
     protected $owner;
 
-    /** @var \BrianFaust\Invoice\ProductCollection */
+    /** @var \Artisanry\Invoice\ProductCollection */
     protected $products;
 
-    /** @var \BrianFaust\Invoice\Transaction */
+    /** @var \Artisanry\Invoice\Transaction */
     protected $transaction;
 
     /**
      * Create a new invoice instance.
      *
-     * @param \BrianFaust\Invoice\Vendor            $vendor
-     * @param \BrianFaust\Invoice\Owner             $owner
-     * @param \BrianFaust\Invoice\ProductCollection $products
-     * @param \BrianFaust\Invoice\Transaction       $transaction
+     * @param \Artisanry\Invoice\Vendor            $vendor
+     * @param \Artisanry\Invoice\Owner             $owner
+     * @param \Artisanry\Invoice\ProductCollection $products
+     * @param \Artisanry\Invoice\Transaction       $transaction
      */
     public function __construct(Vendor $vendor, Owner $owner, ProductCollection $products, Transaction $transaction)
     {
